@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cupcake Fundraiser</title>
+</head>
+<body>
+
+<h1>Cupcake Fundraiser</h1>
+
+<form action="#" method="post">
+  <label for="name">
+    Your name:
+    <br>
+    <input type="text" id="name" name="name" placeholder="Please input your name.">
+  </label>
+  <br>
+  <check if="{{ isset(@errors['name']) }}">
+    <span class="err">{{ @errors['name'] }}</span>
+  </check>
+  <br><br>
+
+  <label>Cupcake Flavors: </label>
+  <br>
+  <repeat group="{{ @flavors }}" value="{{ @flavor }}">
+    <label><input type="checkbox" name="flavors[]" value="{{ @flavor }}"
+    > {{ ucfirst(@flavor) }}</label><br>
+  </repeat>
+  <check if="{{ isset(@errors['flavs']) }}">
+    <span class="err">{{ @errors['flavs'] }}</span>
+  </check>
+  <br><br>
+
+  <input type="submit" value="Order">
+</form>
+
+</body>
+</html>
